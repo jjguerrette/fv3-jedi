@@ -1182,7 +1182,7 @@ do f = 1, size(fields_to_do)
     if (.not. have_snwdph) call field_fail(fields_to_do(f))
     field_ptr = snwdph_meters
 
-  case ("vorticity", "vort")
+  case ("air_upward_absolute_vorticity", "vort")
 
     if (.not. have_vort) call field_fail(fields_to_do(f))
     field_ptr = vort
