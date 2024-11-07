@@ -932,7 +932,7 @@ do f = 1, size(fields_to_do)
     if (.not. have_q) call field_fail(fields_to_do(f))
     field_ptr = q
 
-  case ("qsat", "saturation_specific_humidity")
+  case ("qsat", "saturation_water_vapor_mixing_ratio_wrt_moist_air")
 
     if (.not. have_qsat) call field_fail(fields_to_do(f))
     field_ptr = qsat
