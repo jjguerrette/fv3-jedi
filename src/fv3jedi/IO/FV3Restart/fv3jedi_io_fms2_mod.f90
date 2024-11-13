@@ -783,9 +783,9 @@ subroutine fv3jedi_register_field(fileobj, io_name, array, position, long_name, 
         end if
         
         call register_field(fileobj, trim(xdim_name), 'double', (/ trim(xdim_name) /))
-        call register_variable_attribute(fileobj, trim(xdim_name), 'long_name', trim(xdim_name), str_len=len('long_name'))
-        call register_variable_attribute(fileobj, trim(xdim_name), 'units', 'none', str_len=len('units'))
-        call register_variable_attribute(fileobj, trim(xdim_name), 'cartesian_axis', 'X', str_len=len('cartesian_axis'))
+        call register_variable_attribute(fileobj, trim(xdim_name), 'long_name', trim(xdim_name), str_len=len(trim(xdim_name)))
+        call register_variable_attribute(fileobj, trim(xdim_name), 'units', 'none', str_len=len('none'))
+        call register_variable_attribute(fileobj, trim(xdim_name), 'cartesian_axis', 'X', str_len=len('X'))
      end if
         
      ! Register y-axis
@@ -810,9 +810,9 @@ subroutine fv3jedi_register_field(fileobj, io_name, array, position, long_name, 
         end if
 
         call register_field(fileobj, trim(ydim_name), 'double', (/ trim(ydim_name) /))
-        call register_variable_attribute(fileobj, trim(ydim_name), 'long_name', trim(ydim_name), str_len=len('long_name'))
-        call register_variable_attribute(fileobj, trim(ydim_name), 'units', 'none', str_len=len('units'))
-        call register_variable_attribute(fileobj, trim(ydim_name), 'cartesian_axis', 'Y', str_len=len('cartesian_axis'))
+        call register_variable_attribute(fileobj, trim(ydim_name), 'long_name', trim(ydim_name), str_len=len(trim(ydim_name)))
+        call register_variable_attribute(fileobj, trim(ydim_name), 'units', 'none', str_len=len('none'))
+        call register_variable_attribute(fileobj, trim(ydim_name), 'cartesian_axis', 'Y', str_len=len('Y'))
      end if
 
      ! Register z-axis
@@ -851,9 +851,9 @@ subroutine fv3jedi_register_field(fileobj, io_name, array, position, long_name, 
            call register_axis(fileobj, trim(zdim_name), nz_field)
 
            call register_field(fileobj, trim(zdim_name), 'double', (/ trim(zdim_name) /))
-           call register_variable_attribute(fileobj, trim(zdim_name), 'long_name', trim(zdim_name), str_len=len('long_name'))
-           call register_variable_attribute(fileobj, trim(zdim_name), 'units', 'none', str_len=len('units'))
-           call register_variable_attribute(fileobj, trim(zdim_name), 'cartesian_axis', 'Z', str_len=len('cartesian_axis'))
+           call register_variable_attribute(fileobj, trim(zdim_name), 'long_name', trim(zdim_name), str_len=len(trim(zdim_name)))
+           call register_variable_attribute(fileobj, trim(zdim_name), 'units', 'none', str_len=len('none'))
+           call register_variable_attribute(fileobj, trim(zdim_name), 'cartesian_axis', 'Z', str_len=len('Z'))
         end if
      end if
 
@@ -862,9 +862,9 @@ subroutine fv3jedi_register_field(fileobj, io_name, array, position, long_name, 
         call register_axis(fileobj, 'Time', unlimited)
 
         call register_field(fileobj, 'Time', 'double', (/ 'Time' /))
-        call register_variable_attribute(fileobj, 'Time', 'long_name', 'Time', str_len=len('long_name'))
-        call register_variable_attribute(fileobj, 'Time', 'units', 'time level', str_len=len('units'))
-        call register_variable_attribute(fileobj, 'Time', 'cartesian_axis', 'T', str_len=len('cartesian_axis'))
+        call register_variable_attribute(fileobj, 'Time', 'long_name', 'Time', str_len=len('Time'))
+        call register_variable_attribute(fileobj, 'Time', 'units', 'time level', str_len=len('time level'))
+        call register_variable_attribute(fileobj, 'Time', 'cartesian_axis', 'T', str_len=len('T'))
      end if
 
      ! Register restart field
@@ -884,10 +884,10 @@ subroutine fv3jedi_register_field(fileobj, io_name, array, position, long_name, 
 
      ! Set field attributes
      if ( present(long_name) ) then
-        call register_variable_attribute(fileobj, trim(io_name), 'long_name', trim(long_name), str_len=len('long_name'))
+        call register_variable_attribute(fileobj, trim(io_name), 'long_name', trim(long_name), str_len=len(trim(long_name)))
      end if
      if ( present(units) ) then
-        call register_variable_attribute(fileobj, trim(io_name), 'units', trim(units), str_len=len('units'))
+        call register_variable_attribute(fileobj, trim(io_name), 'units', trim(units), str_len=len(trim(units)))
      end if
 
   end if
